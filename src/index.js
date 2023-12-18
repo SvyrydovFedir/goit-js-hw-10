@@ -41,6 +41,7 @@ function handleBreedSelect() {
     .catch(error => {
       console.log(error.message);
       refs.loader.style.display = 'none';
+      refs.catInfo.innerHTML = '';
       Notiflix.Notify.failure(refs.error.textContent);
     });
 }
