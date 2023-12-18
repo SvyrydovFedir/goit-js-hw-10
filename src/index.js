@@ -36,24 +36,25 @@ function handleBreedSelect() {
     .then(catData => {
       refs.loader.style.display = 'none';
       refs.catInfo.style.display = 'block';
-      createMarkup(catData[0]);
+      createMarkup(catData);
     })
-    .catch(() => {
+    .catch(error => {
+      console.log(error.message);
       refs.loader.style.display = 'none';
       Notiflix.Notify.failure(refs.error.textContent);
     });
 }
 
 function createMarkup(catData) {
-  const { name, description, temperament, image } = catData;
+  const { url, breeds } = catData[0];
 
-  return refs.catInfo.insertAdjacentHTML(
-    'beforeend',
-    `
-  <img src="${image.url}" alt="${name}" class="catImage">
-  <h1 class="breedName">${name}</h1>
-  <p class="description">${description}</p>
-  <p class="temperament">Temperament: ${temperament}</p>
-`
-  );
+  const htmlString = `
+      <img src="${url}" width="700px" alt="${breeds[0].name}" class="catImage">
+      <h1 class="breedName">${breeds[0].name}</h1>
+      <p class="description">${breeds[0].description}</p>
+      <p class="temperament">Temperament: ${breeds[0].temperament}</p>
+    `;
+
+  refs.catInfo.innerHTML = htmlString;
+  refs.catInfo.classList.remove('is-hidden');
 }
