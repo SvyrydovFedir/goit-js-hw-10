@@ -3,5 +3,5 @@ function t(t){return t&&t.__esModule?t.default:t}var e,i,n,o,a,s,r,l,c="undefine
       <h1 class="breedName">${i[0].name}</h1>
       <p class="description">${i[0].description}</p>
       <p class="temperament">Temperament: ${i[0].temperament}</p>
-    `;e_.catInfo.innerHTML=n,e_.catInfo.classList.remove("is-hidden")}(t)}).catch(e=>{console.log(e.message),e_.loader.style.display="none",t(d).Notify.failure(e_.error.textContent)})}eA.get("https://api.thecatapi.com/v1/breeds").then(t=>t.data).catch(t=>{throw t}).then(e=>{e_.loader.style.display="none",e.forEach(t=>{let e=document.createElement("option");e.value=t.id,e.text=t.name,e_.breedSelect.appendChild(e)}),new(t(p))({select:e_.breedSelect}),e_.breedSelect.addEventListener("change",eV)}).catch(()=>{e_.loader.style.display="none"});
-//# sourceMappingURL=index.3b8553bf.js.map
+    `;e_.catInfo.innerHTML=n,e_.catInfo.classList.remove("is-hidden")}(t)}).catch(e=>{console.log(e.message),e_.loader.style.display="none",e_.catInfo.innerHTML="",t(d).Notify.failure(e_.error.textContent)})}eA.get("https://api.thecatapi.com/v1/breeds").then(t=>t.data).catch(t=>{throw t}).then(e=>{e_.loader.style.display="none",e.forEach(t=>{let e=document.createElement("option");e.value=t.id,e.text=t.name,e_.breedSelect.appendChild(e)}),new(t(p))({select:e_.breedSelect}),e_.breedSelect.addEventListener("change",eV)}).catch(()=>{e_.loader.style.display="none"});
+//# sourceMappingURL=index.75b9564a.js.map
